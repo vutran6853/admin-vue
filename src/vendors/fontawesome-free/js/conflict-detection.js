@@ -38,9 +38,9 @@
   }
 
   function _objectSpread(target) {
-    for (var i = 1; i < arguments.length; i++) {
+    for (let i = 1; i < arguments.length; i++) {
       var source = arguments[i] != null ? arguments[i] : {};
-      var ownKeys = Object.keys(source);
+      let ownKeys = Object.keys(source);
 
       if (typeof Object.getOwnPropertySymbols === 'function') {
         ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
@@ -56,27 +56,27 @@
     return target;
   }
 
-  var _WINDOW = {};
-  var _DOCUMENT = {};
+  let _WINDOW = {};
+  let _DOCUMENT = {};
 
   try {
     if (typeof window !== 'undefined') _WINDOW = window;
     if (typeof document !== 'undefined') _DOCUMENT = document;
   } catch (e) {}
 
-  var _ref = _WINDOW.navigator || {},
+  const _ref = _WINDOW.navigator || {},
       _ref$userAgent = _ref.userAgent,
       userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
 
-  var WINDOW = _WINDOW;
-  var DOCUMENT = _DOCUMENT;
-  var IS_BROWSER = !!WINDOW.document;
-  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
-  var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
+  const WINDOW = _WINDOW;
+  const DOCUMENT = _DOCUMENT;
+  const IS_BROWSER = !!WINDOW.document;
+  const IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
+  const IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
-  var functions = [];
+  const functions = [];
 
-  var listener = function listener() {
+  const listener = function listener() {
     DOCUMENT.removeEventListener('DOMContentLoaded', listener);
     loaded = 1;
     functions.map(function (fn) {
@@ -97,24 +97,24 @@
   }
 
   function report (_ref) {
-    var nodesTested = _ref.nodesTested,
+    const nodesTested = _ref.nodesTested,
         nodesFound = _ref.nodesFound;
-    var timedOutTests = {};
+    const timedOutTests = {};
 
-    for (var key in nodesFound) {
+    for (const key in nodesFound) {
       if (!(nodesTested.conflict[key] || nodesTested.noConflict[key])) {
         timedOutTests[key] = nodesFound[key];
       }
     }
 
-    var conflictsCount = Object.keys(nodesTested.conflict).length;
+    const conflictsCount = Object.keys(nodesTested.conflict).length;
 
     if (conflictsCount > 0) {
       console.info("%cConflict".concat(conflictsCount > 1 ? 's' : '', " found:"), 'color: darkred; font-size: large');
-      var data = {};
+      const data = {};
 
-      for (var _key in nodesTested.conflict) {
-        var item = nodesTested.conflict[_key];
+      for (const _key in nodesTested.conflict) {
+        const item = nodesTested.conflict[_key];
         data[_key] = {
           'tagName': item.tagName,
           'src/href': item.src || item.href || 'n/a',
@@ -125,14 +125,14 @@
       console.table(data);
     }
 
-    var noConflictsCount = Object.keys(nodesTested.noConflict).length;
+    const noConflictsCount = Object.keys(nodesTested.noConflict).length;
 
     if (noConflictsCount > 0) {
       console.info("%cNo conflict".concat(noConflictsCount > 1 ? 's' : '', " found with ").concat(noConflictsCount == 1 ? 'this' : 'these', ":"), 'color: green; font-size: large');
-      var _data = {};
+      const _data = {};
 
-      for (var _key2 in nodesTested.noConflict) {
-        var _item = nodesTested.noConflict[_key2];
+      for (const _key2 in nodesTested.noConflict) {
+        const _item = nodesTested.noConflict[_key2];
         _data[_key2] = {
           'tagName': _item.tagName,
           'src/href': _item.src || _item.href || 'n/a',
@@ -143,14 +143,14 @@
       console.table(_data);
     }
 
-    var timeOutCount = Object.keys(timedOutTests).length;
+    const timeOutCount = Object.keys(timedOutTests).length;
 
     if (timeOutCount > 0) {
       console.info("%cLeftovers--we timed out before collecting test results for ".concat(timeOutCount == 1 ? 'this' : 'these', ":"), 'color: blue; font-size: large');
-      var _data2 = {};
+      const _data2 = {};
 
-      for (var _key3 in timedOutTests) {
-        var _item2 = timedOutTests[_key3];
+      for (const _key3 in timedOutTests) {
+        const _item2 = timedOutTests[_key3];
         _data2[_key3] = {
           'tagName': _item2.tagName,
           'src/href': _item2.src || _item2.href || 'n/a',
@@ -162,13 +162,13 @@
     }
   }
 
-  var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+  const commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
   function createCommonjsModule(fn, module) {
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
   }
 
-  var md5 = createCommonjsModule(function (module) {
+  const md5 = createCommonjsModule(function (module) {
 
     (function ($) {
       /**
@@ -181,8 +181,8 @@
        */
 
       function safeAdd(x, y) {
-        var lsw = (x & 0xffff) + (y & 0xffff);
-        var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+        const lsw = (x & 0xffff) + (y & 0xffff);
+        const msw = (x >> 16) + (y >> 16) + (lsw >> 16);
         return msw << 16 | lsw & 0xffff;
       }
       /**
@@ -294,15 +294,15 @@
         /* append padding */
         x[len >> 5] |= 0x80 << len % 32;
         x[(len + 64 >>> 9 << 4) + 14] = len;
-        var i;
-        var olda;
-        var oldb;
-        var oldc;
-        var oldd;
-        var a = 1732584193;
-        var b = -271733879;
-        var c = -1732584194;
-        var d = 271733878;
+        let i;
+        let olda;
+        let oldb;
+        let oldc;
+        let oldd;
+        let a = 1732584193;
+        let b = -271733879;
+        let c = -1732584194;
+        let d = 271733878;
 
         for (i = 0; i < x.length; i += 16) {
           olda = a;
@@ -390,9 +390,9 @@
 
 
       function binl2rstr(input) {
-        var i;
-        var output = '';
-        var length32 = input.length * 32;
+        let i;
+        let output = '';
+        const length32 = input.length * 32;
 
         for (i = 0; i < length32; i += 8) {
           output += String.fromCharCode(input[i >> 5] >>> i % 32 & 0xff);
@@ -410,15 +410,15 @@
 
 
       function rstr2binl(input) {
-        var i;
-        var output = [];
+        let i;
+        const output = [];
         output[(input.length >> 2) - 1] = undefined;
 
         for (i = 0; i < output.length; i += 1) {
           output[i] = 0;
         }
 
-        var length8 = input.length * 8;
+        const length8 = input.length * 8;
 
         for (i = 0; i < length8; i += 8) {
           output[i >> 5] |= (input.charCodeAt(i / 8) & 0xff) << i % 32;
@@ -447,11 +447,11 @@
 
 
       function rstrHMACMD5(key, data) {
-        var i;
-        var bkey = rstr2binl(key);
-        var ipad = [];
-        var opad = [];
-        var hash;
+        let i;
+        let bkey = rstr2binl(key);
+        const ipad = [];
+        const opad = [];
+        let hash;
         ipad[15] = opad[15] = undefined;
 
         if (bkey.length > 16) {
@@ -475,10 +475,10 @@
 
 
       function rstr2hex(input) {
-        var hexTab = '0123456789abcdef';
-        var output = '';
-        var x;
-        var i;
+        const hexTab = '0123456789abcdef';
+        let output = '';
+        let x;
+        let i;
 
         for (i = 0; i < input.length; i += 1) {
           x = input.charCodeAt(i);
@@ -595,20 +595,20 @@
     }
   }
 
-  var diagScriptId = 'fa-kits-diag';
-  var nodeUnderTestId = 'fa-kits-node-under-test';
-  var md5Attr = 'data-md5';
-  var detectionIgnoreAttr = 'data-fa-detection-ignore';
-  var timeoutAttr = 'data-fa-detection-timeout';
-  var resultsCollectionMaxWaitAttr = 'data-fa-detection-results-collection-max-wait';
+  const diagScriptId = 'fa-kits-diag';
+  const nodeUnderTestId = 'fa-kits-node-under-test';
+  const md5Attr = 'data-md5';
+  const detectionIgnoreAttr = 'data-fa-detection-ignore';
+  const timeoutAttr = 'data-fa-detection-timeout';
+  const resultsCollectionMaxWaitAttr = 'data-fa-detection-results-collection-max-wait';
 
-  var silenceErrors = function silenceErrors(e) {
+  const silenceErrors = function silenceErrors(e) {
     e.preventDefault();
     e.stopPropagation();
   };
 
   function pollUntil(_ref) {
-    var _ref$fn = _ref.fn,
+    const _ref$fn = _ref.fn,
         fn = _ref$fn === void 0 ? function () {
       return true;
     } : _ref$fn,
@@ -623,18 +623,18 @@
       // eslint-disable-line compat/compat
       function poll(duration, cumulativeDuration) {
         setTimeout(function () {
-          var result = fn();
+          const result = fn();
 
           if (showProgress) {
             console.info(progressIndicator);
           }
 
-          if (!!result) {
+          if (result) {
             // eslint-disable-line no-extra-boolean-cast
             resolve(result);
           } else {
-            var nextDuration = 250;
-            var nextCumulativeDuration = nextDuration + cumulativeDuration;
+            const nextDuration = 250;
+            const nextCumulativeDuration = nextDuration + cumulativeDuration;
 
             if (nextCumulativeDuration <= maxDuration) {
               poll(nextDuration, nextCumulativeDuration);
@@ -650,10 +650,10 @@
   }
 
   function detectWebfontConflicts() {
-    var linkTags = Array.from(DOCUMENT.getElementsByTagName('link')).filter(function (t) {
+    const linkTags = Array.from(DOCUMENT.getElementsByTagName('link')).filter(function (t) {
       return !t.hasAttribute(detectionIgnoreAttr);
     });
-    var styleTags = Array.from(DOCUMENT.getElementsByTagName('style')).filter(function (t) {
+    const styleTags = Array.from(DOCUMENT.getElementsByTagName('style')).filter(function (t) {
       if (t.hasAttribute(detectionIgnoreAttr)) {
         return false;
       } // If the browser has loaded the FA5 CSS, let's not test that <style> element.
@@ -669,15 +669,15 @@
     });
 
     function runDiag(scriptOrLinkTag, md5) {
-      var diagFrame = DOCUMENT.createElement('iframe'); // Using "visibility: hidden; position: absolute" instead of "display: none;" because
+      const diagFrame = DOCUMENT.createElement('iframe'); // Using "visibility: hidden; position: absolute" instead of "display: none;" because
       // Firefox will not return the expected results for getComputedStyle if our iframe has display: none.
 
       diagFrame.setAttribute('style', 'visibility: hidden; position: absolute; height: 0; width: 0;');
-      var testIconId = 'fa-test-icon-' + md5;
-      var iTag = DOCUMENT.createElement('i');
+      const testIconId = 'fa-test-icon-' + md5;
+      const iTag = DOCUMENT.createElement('i');
       iTag.setAttribute('class', 'fa fa-coffee');
       iTag.setAttribute('id', testIconId);
-      var diagScript = DOCUMENT.createElement('script');
+      const diagScript = DOCUMENT.createElement('script');
       diagScript.setAttribute('id', diagScriptId); // WARNING: this function will be toString()'d and assigned to innerText of the diag script
       // element that we'll be putting into a diagnostic iframe.
       // That means that this code won't compile until after the outer script has run and injected
@@ -686,12 +686,12 @@
       // will probably cause it to choke. Chrome will show an error like this:
       // Uncaught SyntaxError: Unexpected end of input
 
-      var diagScriptFun = function diagScriptFun(nodeUnderTestId, testIconId, md5, parentOrigin) {
+      const diagScriptFun = function diagScriptFun(nodeUnderTestId, testIconId, md5, parentOrigin) {
         parent.FontAwesomeDetection.__pollUntil({
           fn: function fn() {
-            var iEl = document.getElementById(testIconId);
-            var computedStyle = window.getComputedStyle(iEl);
-            var fontFamily = computedStyle.getPropertyValue('font-family');
+            const iEl = document.getElementById(testIconId);
+            const computedStyle = window.getComputedStyle(iEl);
+            const fontFamily = computedStyle.getPropertyValue('font-family');
 
             if (!!fontFamily.match(/FontAwesome/) || !!fontFamily.match(/Font Awesome 5/)) {
               return true;
@@ -700,7 +700,7 @@
             }
           }
         }).then(function () {
-          var node = document.getElementById(nodeUnderTestId);
+          const node = document.getElementById(nodeUnderTestId);
           parent.postMessage({
             type: 'fontawesome-conflict',
             technology: 'webfont',
@@ -710,7 +710,7 @@
             md5: md5
           }, parentOrigin);
         }).catch(function (e) {
-          var node = document.getElementById(nodeUnderTestId);
+          const node = document.getElementById(nodeUnderTestId);
 
           if (e === 'timeout') {
             parent.postMessage({
@@ -727,7 +727,7 @@
         });
       };
 
-      var parentOrigin = WINDOW.location.origin === 'file://' ? '*' : WINDOW.location.origin;
+      const parentOrigin = WINDOW.location.origin === 'file://' ? '*' : WINDOW.location.origin;
       diagScript.innerText = "(".concat(diagScriptFun.toString(), ")('").concat(nodeUnderTestId, "', '").concat(testIconId || 'foo', "', '").concat(md5, "', '").concat(parentOrigin, "');");
 
       diagFrame.onload = function () {
@@ -742,23 +742,23 @@
       });
     }
 
-    var cssByMD5 = {};
+    const cssByMD5 = {};
 
-    for (var i = 0; i < linkTags.length; i++) {
-      var linkUnderTest = DOCUMENT.createElement('link');
+    for (let i = 0; i < linkTags.length; i++) {
+      const linkUnderTest = DOCUMENT.createElement('link');
       linkUnderTest.setAttribute('id', nodeUnderTestId);
       linkUnderTest.setAttribute('href', linkTags[i].href);
       linkUnderTest.setAttribute('rel', linkTags[i].rel);
-      var md5ForLink = md5ForNode(linkTags[i]);
+      const md5ForLink = md5ForNode(linkTags[i]);
       linkUnderTest.setAttribute(md5Attr, md5ForLink);
       cssByMD5[md5ForLink] = linkTags[i];
       runDiag(linkUnderTest, md5ForLink);
     }
 
-    for (var _i = 0; _i < styleTags.length; _i++) {
-      var styleUnderTest = DOCUMENT.createElement('style');
+    for (let _i = 0; _i < styleTags.length; _i++) {
+      const styleUnderTest = DOCUMENT.createElement('style');
       styleUnderTest.setAttribute('id', nodeUnderTestId);
-      var md5ForStyle = md5ForNode(styleTags[_i]);
+      const md5ForStyle = md5ForNode(styleTags[_i]);
       styleUnderTest.setAttribute(md5Attr, md5ForStyle);
       styleUnderTest.innerText = styleTags[_i].innerText;
       cssByMD5[md5ForStyle] = styleTags[_i];
@@ -769,17 +769,17 @@
   }
 
   function detectSvgConflicts(currentScript) {
-    var scripts = Array.from(DOCUMENT.scripts).filter(function (t) {
+    const scripts = Array.from(DOCUMENT.scripts).filter(function (t) {
       return !t.hasAttribute(detectionIgnoreAttr) && t !== currentScript;
     });
-    var scriptsByMD5 = {};
+    const scriptsByMD5 = {};
 
-    var _loop = function _loop(scriptIdx) {
-      var diagFrame = DOCUMENT.createElement('iframe');
+    const _loop = function _loop(scriptIdx) {
+      const diagFrame = DOCUMENT.createElement('iframe');
       diagFrame.setAttribute('style', 'display:none;');
-      var scriptUnderTest = DOCUMENT.createElement('script');
+      const scriptUnderTest = DOCUMENT.createElement('script');
       scriptUnderTest.setAttribute('id', nodeUnderTestId);
-      var md5ForScript = md5ForNode(scripts[scriptIdx]);
+      const md5ForScript = md5ForNode(scripts[scriptIdx]);
       scriptUnderTest.setAttribute(md5Attr, md5ForScript);
       scriptsByMD5[md5ForScript] = scripts[scriptIdx];
 
@@ -792,17 +792,17 @@
       }
 
       scriptUnderTest.async = true;
-      var diagScript = DOCUMENT.createElement('script');
+      const diagScript = DOCUMENT.createElement('script');
       diagScript.setAttribute('id', diagScriptId);
-      var parentOrigin = WINDOW.location.origin === 'file://' ? '*' : WINDOW.location.origin;
+      const parentOrigin = WINDOW.location.origin === 'file://' ? '*' : WINDOW.location.origin;
 
-      var diagScriptFun = function diagScriptFun(nodeUnderTestId, md5, parentOrigin) {
+      const diagScriptFun = function diagScriptFun(nodeUnderTestId, md5, parentOrigin) {
         parent.FontAwesomeDetection.__pollUntil({
           fn: function fn() {
             return !!window.FontAwesomeConfig;
           }
         }).then(function () {
-          var scriptNode = document.getElementById(nodeUnderTestId);
+          const scriptNode = document.getElementById(nodeUnderTestId);
           parent.postMessage({
             type: 'fontawesome-conflict',
             technology: 'js',
@@ -812,7 +812,7 @@
             md5: md5
           }, parentOrigin);
         }).catch(function (e) {
-          var scriptNode = document.getElementById(nodeUnderTestId);
+          const scriptNode = document.getElementById(nodeUnderTestId);
 
           if (e === 'timeout') {
             parent.postMessage({
@@ -841,7 +841,7 @@
       });
     };
 
-    for (var scriptIdx = 0; scriptIdx < scripts.length; scriptIdx++) {
+    for (let scriptIdx = 0; scriptIdx < scripts.length; scriptIdx++) {
       _loop(scriptIdx);
     }
 
@@ -849,7 +849,7 @@
   }
 
   function setDoneResults(_ref2) {
-    var nodesTested = _ref2.nodesTested,
+    const nodesTested = _ref2.nodesTested,
         nodesFound = _ref2.nodesFound;
     WINDOW.FontAwesomeDetection = WINDOW.FontAwesomeDetection || {};
     WINDOW.FontAwesomeDetection.nodesTested = nodesTested;
@@ -858,8 +858,8 @@
   }
 
   function conflictDetection() {
-    var report$$1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
-    var nodesTested = {
+    const report$$1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
+    const nodesTested = {
       conflict: {},
       noConflict: {}
     };
@@ -876,19 +876,19 @@
       }
     };
 
-    var scriptsToTest = detectSvgConflicts(DOCUMENT.currentScript);
-    var cssToTest = detectWebfontConflicts();
+    const scriptsToTest = detectSvgConflicts(DOCUMENT.currentScript);
+    const cssToTest = detectWebfontConflicts();
 
-    var nodesFound = _objectSpread({}, scriptsToTest, cssToTest);
+    const nodesFound = _objectSpread({}, scriptsToTest, cssToTest);
 
-    var testCount = Object.keys(scriptsToTest).length + Object.keys(cssToTest).length; // The resultsCollectionMaxWait allows for the time between when the tests running under
+    const testCount = Object.keys(scriptsToTest).length + Object.keys(cssToTest).length; // The resultsCollectionMaxWait allows for the time between when the tests running under
     // child iframes call postMessage with their results, and when the parent window
     // receives and handles those events with window.onmessage.
     // Making it configurable allows us to test the scenario where this timeout is exceeded.
     // Naming it something very different from "timeout" is to help avoid the potential ambiguity between
     // these two timeout-related settings.
 
-    var masterTimeout = WINDOW.FontAwesomeDetection.timeout + WINDOW.FontAwesomeDetection.resultsCollectionMaxWait;
+    const masterTimeout = WINDOW.FontAwesomeDetection.timeout + WINDOW.FontAwesomeDetection.resultsCollectionMaxWait;
     console.group('Font Awesome Detector');
 
     if (testCount === 0) {
@@ -948,15 +948,15 @@
     }
   } // Allow clients to access, and in some cases, override some properties
 
-  var initialConfig = WINDOW.FontAwesomeDetection || {}; // These can be overridden
+  const initialConfig = WINDOW.FontAwesomeDetection || {}; // These can be overridden
 
-  var _default = {
+  const _default = {
     report: report,
     timeout: +(DOCUMENT.currentScript.getAttribute(timeoutAttr) || "2000"),
     resultsCollectionMaxWait: +(DOCUMENT.currentScript.getAttribute(resultsCollectionMaxWaitAttr) || "5000")
   };
 
-  var _config = _objectSpread({}, _default, initialConfig, {
+  const _config = _objectSpread({}, _default, initialConfig, {
     // These cannot be overridden
     __pollUntil: pollUntil,
     md5ForNode: md5ForNode,
@@ -967,7 +967,7 @@
 
   WINDOW.FontAwesomeDetection = _config;
 
-  var PRODUCTION = function () {
+  const PRODUCTION = function () {
     try {
       return process.env.NODE_ENV === 'production';
     } catch (e) {
