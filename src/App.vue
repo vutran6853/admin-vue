@@ -174,48 +174,27 @@
             </li>
 
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li v-bind:class=' `nav-item dropdown no-arrow mx-1 ${state.navItemsAlertsStatus.isToggle ? "show": "" }` '  @click='handleToggleUserAlerts'>
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" v-bind:aria-expanded=' `${state.navItemsAlertsStatus.isToggle ? "true": "false" }` '>
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
                 <span class="badge badge-danger badge-counter">3+</span>
               </a>
               <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+              <div v-bind:class=' `dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in ${state.navItemsAlertsStatus.isToggle ? "show": "" }` '  aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
                   Alerts Center
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="#" v-for='(value, index) in state.alertCenter' v-bind:key='value.id'>
                   <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
+                    <div v-bind:class=' `icon-circle ${value.bgColors}` '>
+                      <i v-bind:class=' `fas ${value.fasFaIcon} text-white` '></i>
+                    </div>                  
                   </div>
                   <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
+                    <p class="small text-gray-500" style="margin: 0;">{{ value.date }}</p>
+                    <span v-if='index === 0' class="font-weight-bold">{{ value.title }}</span>
+                    <span v-else>{{ value.title }}</span>
                   </div>
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
@@ -269,7 +248,7 @@
                 </a>
 
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal" v-on:click='handleShowLogoutModal'>
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -350,10 +329,11 @@
                   </div>
                 </div>
                 <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
+                <div class="card-body h-25rem">
+                  <ChartArea />
+                  <!-- <div class="chart-area">
                     <canvas id="myAreaChart"></canvas>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -379,9 +359,10 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
+                  <ChartPie />
+                  <!-- <div class="chart-pie pt-4 pb-2">
                     <canvas id="myPieChart"></canvas>
-                  </div>
+                  </div> -->
                   <div class="mt-4 text-center small">
                      <span class="mr-2" v-for='(value) in state.chartKeys' v-bind:key='value.id'>
                        <i v-bind:class=' `fas fa-circle ${value.textColor}` '></i> {{ value.text }}
@@ -480,12 +461,12 @@
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
+  <a class="scroll-to-top rounded" v-bind:style='state.scrollToTopStyle.isShow ? state.scrollToTopStyle.show: state.scrollToTopStyle.hidden ' v-on:click='handleGoToTopOfPage'>
     <i class="fas fa-angle-up"></i>
   </a>
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div v-bind:class=' `modal fade ${state.logoutModal.isShow ? "show" : "" }` ' v-bind:style=' `${state.logoutModal.isShow ? "display: block; padding-right: 17px;" : "display: none;" }` ' id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -496,7 +477,7 @@
         </div>
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal" v-on:click='handleShowLogoutModal'>Cancel</button>
           <a class="btn btn-primary" href="login.html">Logout</a>
         </div>
       </div>
@@ -512,3 +493,9 @@
 <style src="./vendors/css/sb-admin-2.css"></style>
 
 <style src="./vendors/fontawesome-free/css/all.min.css"></style>
+
+<style>
+.h-25rem {
+  height: 25rem;
+}
+</style>

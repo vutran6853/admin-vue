@@ -29,6 +29,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 // Area Chart Example
 const ctx = document.getElementById("myAreaChart");
+console.log('ctx', ctx)
 const myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
