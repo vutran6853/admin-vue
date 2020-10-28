@@ -1,12 +1,14 @@
 import { defineComponent, reactive, onMounted, onUnmounted } from 'vue'
 import ChartArea from './components/ChartArea.vue'
 import ChartPie from './components/ChartPie.vue'
+import Navbar from './components/navbar/Navbar.vue'
 
 const App = defineComponent({
   name: 'App',
   components: {
     ChartArea,
-    ChartPie
+    ChartPie,
+    Navbar
   },
   setup() {
     const state = reactive({
@@ -115,12 +117,12 @@ const App = defineComponent({
         show: 'display: inline;',
         hidden: 'display: none;'
       },
-      logoutModal: {
-        isShow: false,
-        // class: {
-        //   show: ''
-        // }
-      }
+      // logoutModal: {
+      //   isShow: false,
+      //   // class: {
+      //   //   show: ''
+      //   // }
+      // }
     })
 
     function handleScrollTo() {
@@ -194,10 +196,10 @@ const App = defineComponent({
       handleToggleComponentsTab,
       handleToggleUtilitiesTab,
       handleTogglePagesTab,
-      handleToggleUserProfile,
-      handleToggleUserMessage,
-      handleToggleUserAlerts,
-      handleShowLogoutModal
+      // handleToggleUserProfile,
+      // handleToggleUserMessage,
+      // handleToggleUserAlerts,
+      // handleShowLogoutModal
     }
   },
   methods: {

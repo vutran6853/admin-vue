@@ -2,7 +2,7 @@
   <div class="chart-area">
     <canvas id="myAreaChart"></canvas>
     <br/>
-    <p>Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.</p>
+    <!-- <p>Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.</p> -->
   </div>
 </template>
 
