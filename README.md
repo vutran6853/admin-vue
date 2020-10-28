@@ -1,5 +1,8 @@
 # admin-vue
 
+SB(Start Boostrap) Admin 2.
+A free Bootstrap 5 admin theme built with Vue.js. a modern development workflow environment ready to use to build your next dashboard or web application
+
 ## Project setup
 ```
 npm install
