@@ -1,7 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import CustomButtons from '../components/custom/CustomButtons.vue'
+import Home from '../components/home/Home.vue'
 
 const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
   {
     path: '/custom/buttons',
     name: 'CustomButtons',
