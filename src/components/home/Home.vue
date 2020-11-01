@@ -226,7 +226,7 @@ export default defineComponent({
         { id: (Math.random() * 64).toPrecision(10), text: '' },
         { id: (Math.random() * 64).toPrecision(10), text: 'bg-info' },
         { id: (Math.random() * 64).toPrecision(10), text: 'bg-success' }
-      ],
+      ]
     })
    
 

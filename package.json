@@ -1,5 +1,5 @@
 {
-  "name": "admin-vue",
+  "name": "admin-vue-theme",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,5 +19,26 @@
     "chart.js": "^2.9.4",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2"
+  },
+  "description": "An open source Bootstrap 5 admin theme with Vue.",
+  "keywords": [
+    "css",
+    "sass",
+    "html",
+    "responsive",
+    "theme",
+    "template",
+    "admin",
+    "app",
+    "vue3"
+  ],
+  "homepage": "",
+  "license": "MIT",
+  "contributors": [
+    "Vu Tran (https://github.com/vutran6853)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vutran6853/admin-vue.git"
   }
 }
