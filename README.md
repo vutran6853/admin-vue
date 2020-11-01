@@ -63,18 +63,5 @@ yarn build
 npm run build
 ```
 
-### Run your unit tests
-**for `yarn` package manager**
-
-```
-yarn test:unit
-```
-
-**for `npm` package manager**
-
-```
-npm run test:unit
-```
-
 ### Customize Vuejs configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
