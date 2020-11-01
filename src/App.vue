@@ -2,10 +2,9 @@
   <div id="page-top" v-bind:class='state.isSidebarToggle ? "sidebar-toggled" : "" ' class="modal-open">
     
   <!-- Page Wrapper -->
-  <div id="wrapper" style="display: flex;" >
+  <div id="wrapper" style="display: flex;">
 
     <!-- Sidebar -->
-    <!-- <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar"> -->
     <ul v-bind:class='state.isSidebarToggle ? state.sidebarToggleClass[0].style : state.sidebarToggleClass[1].style ' id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
@@ -31,9 +30,7 @@
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      <div class="sidebar-heading">
-        Interface
-      </div>
+      <header class="sidebar-heading">Interface</header>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
@@ -44,8 +41,8 @@
         <div id="collapseTwo" v-bind:class=' `collapse ${state.navItemsStatus.componentsTab.isToggle ? "show": "" }` ' aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+            <RouterLink to="/custom/components/buttons" class="collapse-item">Buttons</RouterLink>
+            <RouterLink to="/custom/components/cards" class="collapse-item">Cards</RouterLink>
           </div>
         </div>
       </li>
@@ -62,10 +59,10 @@
 
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+            <RouterLink to="/custom/utilities/colors" class="collapse-item">Colors</RouterLink>
+            <RouterLink to="/custom/utilities/borders" class="collapse-item">Borders</RouterLink>
+            <RouterLink to="/custom/utilities/animations" class="collapse-item">Animations</RouterLink>
+            <RouterLink to="/custom/utilities/other" class="collapse-item">Other</RouterLink>
           </div>
         </div>
       </li>
@@ -74,9 +71,7 @@
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      <div class="sidebar-heading">
-        Addons
-      </div>
+      <header class="sidebar-heading">Addons</header>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
@@ -94,24 +89,28 @@
             <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
+            <!-- <a class="collapse-item" href="404.html">404 Page</a> -->
+            <!-- <a class="collapse-item" href="blank.html">Blank Page</a> -->
+            <RouterLink to="/404" class="collapse-item">404 Page</RouterLink>
+            <RouterLink to="/blank" class="collapse-item">Blank Page</RouterLink>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <RouterLink to="/" class="nav-link">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+          <span>Charts</span>
+        </RouterLink>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <RouterLink to="/" class="nav-link">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Tables</span>
+        </RouterLink>
       </li>
 
       <!-- Divider -->
@@ -130,11 +129,8 @@
 
       <!-- Main Content -->
       <div id="content">
-
         <Navbar />
-        <RouterView/>
-
-
+        <RouterView />
       </div>
       <!-- End of Main Content -->
 
@@ -159,13 +155,10 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-
-
   </div>
 </template>
 
 <script src="./App"></script>
-
 
 <style src="./vendors/css/sb-admin-2.css"></style>
 
