@@ -1,97 +1,82 @@
 <template>
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+  <section class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-1 text-gray-800">Color Utilities</h1>
-          <p class="mb-4">Bootstrap's default utility classes can be found on the official <a href="https://v5.getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap Documentation</a> page. The custom utilities below were created to extend this theme past the default utility classes built into Bootstrap's framework.</p>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-1 text-gray-800">Color Utilities</h1>
+    <p class="mb-4">Bootstrap's default utility classes can be found on the official <a href="https://v5.getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap Documentation</a> page. The custom utilities below were created to extend this theme past the default utility classes built into Bootstrap's framework.</p>
 
-          <!-- Content Row -->
-          <div class="row">
+    <!-- Content Row -->
+    <div class="row">
 
-            <!-- First Column -->
-            <div class="col-lg-4">
+      <!-- First Column -->
+      <div class="col-lg-4">
 
-              <!-- Custom Text Color Utilities -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Custom Text Color Utilities</h6>
-                </div>
-                <div class="card-body">
-                  <p class="text-gray-100 p-3 bg-dark m-0">.text-gray-100</p>
-                  <p class="text-gray-200 p-3 bg-dark m-0">.text-gray-200</p>
-                  <p class="text-gray-300 p-3 bg-dark m-0">.text-gray-300</p>
-                  <p class="text-gray-400 p-3 bg-dark m-0">.text-gray-400</p>
-                  <p class="text-gray-500 p-3 m-0">.text-gray-500</p>
-                  <p class="text-gray-600 p-3 m-0">.text-gray-600</p>
-                  <p class="text-gray-700 p-3 m-0">.text-gray-700</p>
-                  <p class="text-gray-800 p-3 m-0">.text-gray-800</p>
-                  <p class="text-gray-900 p-3 m-0">.text-gray-900</p>
-                </div>
-              </div>
-
-              <!-- Custom Font Size Utilities -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Custom Font Size Utilities</h6>
-                </div>
-                <div class="card-body">
-                  <p class="text-xs">.text-xs</p>
-                  <p class="text-lg mb-0">.text-lg</p>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Second Column -->
-            <div class="col-lg-4">
-
-              <!-- Background Gradient Utilities -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Custom Background Gradient Utilities</h6>
-                </div>
-                <div class="card-body">
-                  <div class="px-3 py-5 bg-gradient-primary text-white">.bg-gradient-primary</div>
-                  <div class="px-3 py-5 bg-gradient-secondary text-white">.bg-gradient-secondary</div>
-                  <div class="px-3 py-5 bg-gradient-success text-white">.bg-gradient-success</div>
-                  <div class="px-3 py-5 bg-gradient-info text-white">.bg-gradient-info</div>
-                  <div class="px-3 py-5 bg-gradient-warning text-white">.bg-gradient-warning</div>
-                  <div class="px-3 py-5 bg-gradient-danger text-white">.bg-gradient-danger</div>
-                  <div class="px-3 py-5 bg-gradient-light text-white">.bg-gradient-light</div>
-                  <div class="px-3 py-5 bg-gradient-dark text-white">.bg-gradient-dark</div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Third Column -->
-            <div class="col-lg-4">
-
-              <!-- Grayscale Utilities -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Custom Grayscale Background Utilities</h6>
-                </div>
-                <div class="card-body">
-                  <div class="p-3 bg-gray-100">.bg-gray-100</div>
-                  <div class="p-3 bg-gray-200">.bg-gray-200</div>
-                  <div class="p-3 bg-gray-300">.bg-gray-300</div>
-                  <div class="p-3 bg-gray-400">.bg-gray-400</div>
-                  <div class="p-3 bg-gray-500 text-white">.bg-gray-500</div>
-                  <div class="p-3 bg-gray-600 text-white">.bg-gray-600</div>
-                  <div class="p-3 bg-gray-700 text-white">.bg-gray-700</div>
-                  <div class="p-3 bg-gray-800 text-white">.bg-gray-800</div>
-                  <div class="p-3 bg-gray-900 text-white">.bg-gray-900</div>
-                </div>
-              </div>
-            </div>
-
+        <!-- Custom Text Color Utilities -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Custom Text Color Utilities</h6>
           </div>
-
+          <div class="card-body">
+            <p v-for='(value, index) in 4' v-bind:key='value' v-bind:class=' `text-gray-${index + 1}00 p-3 bg-dark m-0` '>
+              .text-gray-{{ index + 1 }}00
+            </p>
+            <p v-for='(value) in [5, 6, 7, 8, 9]' v-bind:key='value' v-bind:class=' `text-gray-${value}00 p-3 m-0` '>
+              .text-gray-{{ value }}00
+            </p>
+          </div>
         </div>
-        <!-- /.container-fluid -->
 
+        <!-- Custom Font Size Utilities -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Custom Font Size Utilities</h6>
+          </div>
+          <div class="card-body">
+            <p class="text-xs">.text-xs</p>
+            <p class="text-lg mb-0">.text-lg</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Second Column -->
+      <div class="col-lg-4">
+
+        <!-- Background Gradient Utilities -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Custom Background Gradient Utilities</h6>
+          </div>
+          <div class="card-body">
+            <p v-for='(value) in state.colorInfo' v-bind:key='value.id' style="margin: 0;" v-bind:class=' `px-3 py-5 bg-gradient-${value.color} text-white` '>
+              .bg-gradient-{{ value.color }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third Column -->
+      <div class="col-lg-4">
+
+        <!-- Grayscale Utilities -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Custom Grayscale Background Utilities</h6>
+          </div>
+          <div class="card-body">
+            <p v-for='(value, index) in 4' v-bind:key='value' v-bind:class=' `p-3 bg-gray-${index + 1}00` ' style="margin: 0;">
+              .bg-gray-{{ index + 1 }}00
+            </p>
+            <p v-for='(value) in [5, 6, 7, 8, 9]' v-bind:key='value' v-bind:class=' `p-3 bg-gray-${value}00 text-white` ' style="margin: 0;">
+              .bg-gray-{{ value }}00
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
 </template>
 
 <script>
@@ -100,22 +85,15 @@ import { defineComponent, reactive, onMounted } from 'vue'
 export default defineComponent({
   name: 'CustomColors',
   setup() {
-    let state = reactive({
-      circleButtonInfo: [
-        { id: (Math.random() * 64).toPrecision(10), color: 'primary', fasFaIcon: 'fab fa-facebook-f' },
-        { id: (Math.random() * 64).toPrecision(10), color: 'success', fasFaIcon: 'fas fa-check' },
-        { id: (Math.random() * 64).toPrecision(10), color: 'info', fasFaIcon: 'fas fa-info-circle' },
-        { id: (Math.random() * 64).toPrecision(10), color: 'warning', fasFaIcon: 'fas fa-exclamation-triangle' },
-        { id: (Math.random() * 64).toPrecision(10), color: 'danger', fasFaIcon: 'fas fa-trash' }
-      ],
-      splitButtonsWithIcon: [
-        { id: (Math.random() * 64).toPrecision(10), color: 'primary', fasFaIcon: 'fas fa-flag', text: 'Primary' },
-        { id: (Math.random() * 64).toPrecision(10), color: 'success', fasFaIcon: 'fas fa-check', text: 'Success' },
-        { id: (Math.random() * 64).toPrecision(10), color: 'info', fasFaIcon: 'fas fa-info-circle', text: 'Info' },
-        { id: (Math.random() * 64).toPrecision(10), color: 'warning', fasFaIcon: 'fas fa-exclamation-triangle', text: 'Warning' },
-        { id: (Math.random() * 64).toPrecision(10), color: 'danger', fasFaIcon: 'fas fa-trash', text: 'Danger' },
-        { id: (Math.random() * 64).toPrecision(10), color: 'secondary', fasFaIcon: 'fas fa-arrow-right', text: 'Secondary' },
-        { id: (Math.random() * 64).toPrecision(10), color: 'light', fasFaIcon: 'fas fa-flag', text: 'Light' } 
+    const state = reactive({
+      colorInfo: [
+        { id: (Math.random() * 64).toPrecision(10), color: 'primary' },
+        { id: (Math.random() * 64).toPrecision(10), color: 'secondary' },
+        { id: (Math.random() * 64).toPrecision(10), color: 'success' },
+        { id: (Math.random() * 64).toPrecision(10), color: 'info' },
+        { id: (Math.random() * 64).toPrecision(10), color: 'warning' },
+        { id: (Math.random() * 64).toPrecision(10), color: 'danger' },
+        { id: (Math.random() * 64).toPrecision(10), color: 'dark' }
       ]
     })
 
