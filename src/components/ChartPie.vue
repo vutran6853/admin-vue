@@ -2,7 +2,6 @@
   <div class="chart-pie pt-4 pb-2">
     <canvas id="myPieChart"></canvas>
     <br/>
-    <!-- <p>Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.</p> -->
   </div>
 </template>
 
@@ -10,10 +9,10 @@
 import { defineComponent, reactive, onMounted } from 'vue'
 import Chart from 'chart.js'
 
-const ChartPie = defineComponent({
+let ChartPie = defineComponent({
   name: 'ChartPie',
   setup() {
-    const state = reactive({
+    let state = reactive({
       labels: ["Direct", "Referral", "Social"],
       datasets: [{
         data: [55, 30, 15],
@@ -31,7 +30,7 @@ const ChartPie = defineComponent({
           xPadding: 15,
           yPadding: 15,
           displayColors: false,
-          caretPadding: 10,
+          caretPadding: 10
         },
         legend: {
           display: false
@@ -41,8 +40,8 @@ const ChartPie = defineComponent({
     })
 
     onMounted(function () {
-      const ctx = document.getElementById('myPieChart')
-      const myPieChart = new Chart(ctx, {
+      let ctx = document.getElementById('myPieChart')
+      let myPieChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
           labels: state.labels,

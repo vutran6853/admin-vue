@@ -45,7 +45,6 @@
             <h6 class="m-0 font-weight-bold text-primary">Dropdown - No Arrow</h6>
           </div>
           <div class="card-body">
-            <!-- <div v-bind:class=' `dropdown no-arrow > -->
             <div v-bind:class='`dropdown no-arrow mb-4 ${state.dropDownStatus.isToggle ? "show": "" }` ' @click='handleToggleDropDown'>
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown (no arrow)
@@ -86,10 +85,10 @@
 <script>
 import { defineComponent, reactive } from 'vue'
 
-const CustomOther = defineComponent({
+let CustomOther = defineComponent({
   name: 'CustomOther',
   setup() {
-    const state = reactive({
+    let state = reactive({
       dropDownStatus: {
         isToggle: false
       },

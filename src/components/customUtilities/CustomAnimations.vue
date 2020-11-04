@@ -93,9 +93,9 @@
 </template>
 
 <script>
-import { defineComponent, reactive, onMounted } from 'vue'
+import { defineComponent, reactive } from 'vue'
 
-const CustomAnimations = defineComponent({
+let CustomAnimations = defineComponent({
   name: 'CustomAnimations',
   setup() {
    

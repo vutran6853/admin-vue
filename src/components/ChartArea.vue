@@ -2,7 +2,6 @@
   <div class="chart-area">
     <canvas id="myAreaChart"></canvas>
     <br/>
-    <!-- <p>Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.</p> -->
   </div>
 </template>
 
@@ -21,7 +20,7 @@ function numberFormat(number, decimals, decPoint, thousandsSep) {
   let dec = (typeof decPoint === 'undefined') ? '.' : decPoint
   let s = ''
   let toFixedFix = function(n, prec) {
-    const k = Math.pow(10, prec)
+    let k = Math.pow(10, prec)
     return '' + Math.round(n * k) / k
   }
 
@@ -37,10 +36,10 @@ function numberFormat(number, decimals, decPoint, thousandsSep) {
   return s.join(dec)
 }
 
-const ChartArea = defineComponent({
+let ChartArea = defineComponent({
   name: 'ChartArea',
   setup() {
-    const state = reactive({
+    let state = reactive({
       labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       datasets: [{
         label: "Earnings",
@@ -116,8 +115,8 @@ const ChartArea = defineComponent({
           mode: 'index',
           caretPadding: 10,
           callbacks: {
-            label: function(tooltipItem, chart) {
-              const datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || ''
+            label: function (tooltipItem, chart) {
+              let datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || ''
               return datasetLabel + ': $' + numberFormat(tooltipItem.yLabel)
             }
           }
@@ -126,8 +125,8 @@ const ChartArea = defineComponent({
     })
 
     onMounted(function () {
-      const ctx = document.getElementById("myAreaChart")
-      const myLineChart = new Chart(ctx, {
+      let ctx = document.getElementById("myAreaChart")
+      let myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
           labels: state.labels,

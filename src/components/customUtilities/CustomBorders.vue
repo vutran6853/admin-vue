@@ -30,10 +30,10 @@
 <script>
 import { defineComponent, reactive, onMounted } from 'vue'
 
-const CustomBorders = defineComponent({
+let CustomBorders = defineComponent({
   name: 'CustomBorders',
   setup() {
-    const state = reactive({
+    let state = reactive({
       borderUtilitiesInfo: [
         { id: (Math.random() * 64).toPrecision(10), color: 'primary' },
         { id: (Math.random() * 64).toPrecision(10), color: 'secondary' },

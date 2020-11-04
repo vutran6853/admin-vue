@@ -2,7 +2,7 @@
   <section class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Buttons</h1>
+    <h3 class="h3 mb-4 text-gray-800">Buttons</h3>
 
     <div class="row">
 

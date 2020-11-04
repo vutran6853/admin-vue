@@ -146,12 +146,12 @@
 </template>
 
 <script>
-import { defineComponent, reactive, onMounted } from 'vue'
+import { defineComponent, reactive } from 'vue'
 
-const Navbar = defineComponent({
+let Navbar = defineComponent({
   name: 'Navbar',
   setup() {
-    const state = reactive({
+    let state = reactive({
       navItemsStatus: {
         componentsTab: {
           isToggle: false,

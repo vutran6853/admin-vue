@@ -114,10 +114,10 @@
 <script>
 import { defineComponent, reactive } from 'vue'
 
-const CustomCards = defineComponent({
+let CustomCards = defineComponent({
   name: 'CustomCards',
   setup() {
-    const state = reactive({
+    let state = reactive({
       cardDropDownStatus: {
         isToggle: false
       },
@@ -126,20 +126,12 @@ const CustomCards = defineComponent({
         { id: (Math.random() * 64).toPrecision(10), colorText: 'success', text: 'Earnings (Annual)', amount: '$215,000', fasFaIcon: 'fa-dollar-sign' },
         { id: (Math.random() * 64).toPrecision(10), colorText: 'info', text: 'Tasks', amount: '50%', fasFaIcon: 'fa-clipboard-list' },
         { id: (Math.random() * 64).toPrecision(10), colorText: 'warning', text: 'Pending Requests', amount: '18', fasFaIcon: 'fa-comments' }
-      ],
-      // bgColors: [
-      //   { id: (Math.random() * 64).toPrecision(10), text: 'bg-danger' },
-      //   { id: (Math.random() * 64).toPrecision(10), text: 'bg-warning' },
-      //   { id: (Math.random() * 64).toPrecision(10), text: '' },
-      //   { id: (Math.random() * 64).toPrecision(10), text: 'bg-info' },
-      //   { id: (Math.random() * 64).toPrecision(10), text: 'bg-success' }
-      // ],
+      ]
     })
 
     function handleToggleDropDownCard() {
       state.cardDropDownStatus.isToggle = !state.cardDropDownStatus.isToggle
     }
-   
 
     return {
       state,
