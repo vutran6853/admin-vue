@@ -103,7 +103,6 @@ const router = createRouter({
 
 // init app load route to this route as base
 router.beforeEach((to, from, next) => {
-  console.log({to, from})
   if (to.path === '/') {
     next({ path: '/main' })
   }

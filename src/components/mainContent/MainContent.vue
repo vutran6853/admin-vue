@@ -68,7 +68,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body h-25rem">
-              <!-- <ChartArea /> -->
+              <ChartArea />
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-              <!-- <ChartPie /> -->
+              <ChartPie />
               <div class="mt-4 text-center small">
                 <span class="mr-2" v-for='(value) in state.chartKeys' v-bind:key='value.id'>
                   <i v-bind:class=' `fas fa-circle ${value.textColor}` '></i> {{ value.text }}
@@ -174,15 +174,14 @@
 
 <script>
 import { defineComponent, reactive, onMounted, onUnmounted } from 'vue'
-// import ChartArea from '../ChartArea.vue'
-// import ChartPie from '../ChartPie.vue'
+import ChartArea from '../ChartArea.vue'
+import ChartPie from '../ChartPie.vue'
 
 export default defineComponent({
   name: 'MainContent',
   components: {
-    // ChartArea,
-    // ChartPie,
-    // Navbar
+    ChartArea,
+    ChartPie
   },
   setup() {
     let state = reactive({

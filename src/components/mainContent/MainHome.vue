@@ -55,12 +55,12 @@
           </a>
           <div id="collapseTwo" v-bind:class=' `collapse ${state.navItemsStatus.utilitiesTab.isToggle ? "show": "" }` ' aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Custom Utilities:</h6>
-              <RouterLink to="/main/custom/utilities/colors" class="collapse-item">Colors</RouterLink>
-              <RouterLink to="/main/custom/utilities/borders" class="collapse-item">Borders</RouterLink>
-              <RouterLink to="/main/custom/utilities/animations" class="collapse-item">Animations</RouterLink>
-              <RouterLink to="/main/custom/utilities/other" class="collapse-item">Other</RouterLink>
+            <div class="bg-white py-2 collapse-inner rounded d-flex flex-column m-2">
+              <h6 class="collapse-header text-black-50 text-center">Custom Utilities:</h6>
+              <RouterLink to="/main/custom/utilities/colors" class="collapse-item ml-4">Colors</RouterLink>
+              <RouterLink to="/main/custom/utilities/borders" class="collapse-item ml-4">Borders</RouterLink>
+              <RouterLink to="/main/custom/utilities/animations" class="collapse-item ml-4">Animations</RouterLink>
+              <RouterLink to="/main/custom/utilities/other" class="collapse-item ml-4">Other</RouterLink>
             </div>
           </div>
         </li>
@@ -78,15 +78,15 @@
             <span>Pages</span>
           </a>
           <div id="collapseTwo" v-bind:class=' `collapse ${state.navItemsStatus.pagesTab.isToggle ? "show": "" }` ' aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Login Screens:</h6>
-              <RouterLink to="/login" class="collapse-item">Login</RouterLink>
-              <RouterLink to="/register" class="collapse-item">Register</RouterLink>
-              <RouterLink to="/forgotPassword" class="collapse-item">Forgot Password</RouterLink>
+            <div class="bg-white py-2 collapse-inner rounded d-flex flex-column m-2">
+              <h6 class="collapse-header text-black-50 text-center">Login Screens:</h6>
+              <RouterLink to="/login" class="collapse-item ml-4">Login</RouterLink>
+              <RouterLink to="/register" class="collapse-item ml-4">Register</RouterLink>
+              <RouterLink to="/forgotPassword" class="collapse-item ml-4">Forgot Password</RouterLink>
               <div class="collapse-divider"></div>
-              <h6 class="collapse-header">Other Pages:</h6>
-              <RouterLink to="/main/404" class="collapse-item">404 Page</RouterLink>
-              <RouterLink to="/main/blank" class="collapse-item">Blank Page</RouterLink>
+              <h6 class="collapse-header text-black-50 text-center">Other Pages:</h6>
+              <RouterLink to="/main/404" class="collapse-item ml-4">404 Page</RouterLink>
+              <RouterLink to="/main/blank" class="collapse-item ml-4">Blank Page</RouterLink>
             </div>
           </div>
         </li>
@@ -324,6 +324,7 @@ let Main = defineComponent({
     }
 
     function handleToggleComponentsTab() {
+      console.log('handleToggleComponentsTab')
       state.navItemsStatus.componentsTab.isToggle = !state.navItemsStatus.componentsTab.isToggle
       state.navItemsStatus.utilitiesTab.isToggle = false
       state.navItemsStatus.pagesTab.isToggle = false
@@ -387,9 +388,6 @@ let Main = defineComponent({
 })
 
 export default Main
-
-// <style src="../../vendors/css/sb-admin-2.css"></style>
-
 </script>
 
 <style src="../../vendors/css/bootstrap.css"></style>
@@ -457,6 +455,10 @@ export default Main
 
 .rotate-n-15 {
   transform: rotate(-15deg);
+}
+
+.collapse-inner .collapse-item:hover {
+  opacity: 50%;
 }
 
 @media (min-width: 768px) {
