@@ -57,7 +57,7 @@ let ChartArea = defineComponent({
         data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000]
       }],
       options: {
-        maintainAspectRatio: false,
+        // maintainAspectRatio: false,
         layout: {
           padding: {
             left: 10,

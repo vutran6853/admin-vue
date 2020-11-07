@@ -67,7 +67,7 @@
               </div>
             </div>
             <!-- Card Body -->
-            <div class="card-body h-25rem">
+            <div class="card-body">
               <ChartArea />
             </div>
           </div>
