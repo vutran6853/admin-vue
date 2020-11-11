@@ -418,7 +418,7 @@ export default Main
 } */
 
 
-/* .sidebar {
+.sidebar {
   width: 6.5rem;
   min-height: 100vh;
 }
@@ -431,9 +431,9 @@ export default Main
   text-decoration: none;
 }
 
-#accordionSidebar >* a:hover {
+/* #accordionSidebar >* a:hover {
   background-color: rgba(255, 255, 255, 0.25);
-}
+} */
 
 .sidebar-dark > .sidebar-brand {
   color: #fff;
@@ -455,7 +455,7 @@ export default Main
 
 .rotate-n-15 {
   transform: rotate(-15deg);
-} */
+}
 
 /* .collapse-inner .collapse-item:hover {
   opacity: 50%;
