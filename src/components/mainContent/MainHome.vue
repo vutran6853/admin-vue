@@ -418,7 +418,7 @@ export default Main
 } */
 
 
-.sidebar {
+/* .sidebar {
   width: 6.5rem;
   min-height: 100vh;
 }
@@ -455,11 +455,11 @@ export default Main
 
 .rotate-n-15 {
   transform: rotate(-15deg);
-}
+} */
 
-.collapse-inner .collapse-item:hover {
+/* .collapse-inner .collapse-item:hover {
   opacity: 50%;
-}
+} */
 
 @media (min-width: 768px) {
   .sidebar {
