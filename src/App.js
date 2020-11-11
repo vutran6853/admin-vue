@@ -17,13 +17,6 @@ const App = defineComponent({
         {
           style: 'navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled'
         }
-        // {
-        //   style: 'navbar-nav bg-primary text-white sidebar sidebar-dark accordion'
-        
-        // },
-        // {
-        //   style: 'navbar-nav bg-primary text-white sidebar sidebar-dark accordion toggled'
-        // }
       ],
       navItemsStatus: {
         componentsTab: {
