@@ -80,12 +80,12 @@
 </template>
 
 <script>
-import { defineComponent, reactive, onMounted } from 'vue'
+import { defineComponent, reactive } from 'vue'
 
 export default defineComponent({
   name: 'CustomColors',
   setup() {
-    const state = reactive({
+    let state = reactive({
       colorInfo: [
         { id: (Math.random() * 64).toPrecision(10), color: 'primary' },
         { id: (Math.random() * 64).toPrecision(10), color: 'secondary' },
